@@ -1,0 +1,48 @@
+
+#timeContainer {
+  font-size: 45px;
+  display: grid;
+  grid-template-columns: 2fr 1fr 2fr;
+  height: 50px;
+  color: white;
+}
+
+#timeContainer span {
+  text-align: center;
+}
+
+.no-spinners {
+  -moz-appearance:textfield;
+  border:none;
+  resize: none;
+  overflow:hidden;
+  outline: none;
+  font-size: 45px;
+  text-align: center;
+  background: transparent;
+  color: white;
+  width: 50px;
+}
+
+.no-spinners::-webkit-outer-spin-button,
+.no-spinners::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+  border:none;
+  resize: none;
+  overflow:hidden;
+  outline: none;
+  font-size: 45px;
+  text-align: center;
+}
+
+#inputMinutes {
+  grid-column: 1;
+  text-align: center;
+  margin: 0 0 0 auto;
+}
+
+#inputSecondes {
+  grid-column: 3;
+  text-align: center;
+}

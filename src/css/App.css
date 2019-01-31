@@ -1,0 +1,17 @@
+body {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  background-color: #333333;  
+}
+
+#root {
+  height: 100%;
+  width: 50%;
+  margin: 0 auto;
+}
+
+#appContainer {
+  height: 100%;
+  margin: 0 auto;
+}

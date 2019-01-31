@@ -1,0 +1,33 @@
+#timerButtonContainer {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  width: 100%;
+  height: 60px;
+}
+
+#timerButtonContainer button {
+  background: none;
+  border: none;
+  outline: 0;
+  border-radius: 50%;
+  width: 60px;
+  margin: 0 auto;
+  color:white;
+
+}
+
+#timerButtonContainer button:focus {
+  outline: none;
+}
+
+#timerButtonContainer button::-moz-focus-inner {
+  border: 0;
+}
+
+.visible {
+  visibility: visible;
+}
+
+.invisible {
+   visibility: hidden;
+}
