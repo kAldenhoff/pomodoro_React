@@ -4,12 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "parcel index.html"
+    "start": "parcel index.html",
+    "build": "parcel build index.html -d docs --public-url ./"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/kAldenhoff/pomodoro_React.git"
   },
+  "homepage":"https://kaldenhoff.github.io/pomodoro_React/",
   "keywords": [],
   "author": "",
   "license": "ISC",
