@@ -24901,7 +24901,24 @@ function (_Component) {
 }(_react.Component);
 
 exports.default = Timer;
-},{"react":"node_modules/react/index.js","./TimerTime":"src/components/TimerTime.js","./TimerButtons":"src/components/TimerButtons.js","../css/timer.css":"src/css/timer.css"}],"src/components/Modal.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","./TimerTime":"src/components/TimerTime.js","./TimerButtons":"src/components/TimerButtons.js","../css/timer.css":"src/css/timer.css"}],"src/components/ModalMessage.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = ModalMessage;
+
+var _react = _interopRequireWildcard(require("react"));
+
+require("../css/timerButton.css");
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
+
+function ModalMessage(props) {
+  return _react.default.createElement("div", null, _react.default.createElement("h1", null, "Break's Time"), _react.default.createElement("p", null, "It's time to take a break ! "));
+}
+},{"react":"node_modules/react/index.js","../css/timerButton.css":"src/css/timerButton.css"}],"src/components/Modal.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -24911,7 +24928,11 @@ exports.default = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
+var _ModalMessage = _interopRequireDefault(require("./ModalMessage"));
+
 require("../css/timerButton.css");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
 
@@ -24947,9 +24968,11 @@ function (_Component) {
   _createClass(Modal, [{
     key: "render",
     value: function render() {
-      return _react.default.createElement("div", {
-        id: "modalContainer"
-      }, _react.default.createElement("h1", null, "Break's Time"));
+      return _react.default.createElement("div", null, _react.default.createElement(_ModalMessage.default, null), _react.default.createElement("button", {
+        onClick: this.props.closeModal
+      }, "close"), _react.default.createElement("button", {
+        onClick: this.props.restartTimer
+      }, "Restart"));
     }
   }]);
 
@@ -24957,7 +24980,7 @@ function (_Component) {
 }(_react.Component);
 
 exports.default = Modal;
-},{"react":"node_modules/react/index.js","../css/timerButton.css":"src/css/timerButton.css"}],"src/css/app.css":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","./ModalMessage":"src/components/ModalMessage.js","../css/timerButton.css":"src/css/timerButton.css"}],"src/css/app.css":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
@@ -27043,6 +27066,8 @@ require("../css/app.css");
 
 var _reactModal = _interopRequireDefault(require("react-modal"));
 
+var _content;
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
@@ -27065,7 +27090,15 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 _reactModal.default.setAppElement('#root');
+
+var customStyles = {
+  content: (_content = {
+    position: 'relative'
+  }, _defineProperty(_content, "position", 'static'), _defineProperty(_content, "width", '100%'), _defineProperty(_content, "height", '100%'), _defineProperty(_content, "margin", 'auto'), _defineProperty(_content, "background", 'rgba(0, 0, 0, 0.9)'), _defineProperty(_content, "padding", '0px'), _defineProperty(_content, "color", 'white'), _content)
+};
 
 var App =
 /*#__PURE__*/
@@ -27084,6 +27117,8 @@ function (_Component) {
     _this.openModal = _this.openModal.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     _this.afterOpenModal = _this.afterOpenModal.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     _this.closeModal = _this.closeModal.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    _this.restartTimer = _this.restartTimer.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    _this.timer = _react.default.createRef();
     return _this;
   }
 
@@ -27106,20 +27141,30 @@ function (_Component) {
       });
     }
   }, {
+    key: "restartTimer",
+    value: function restartTimer() {
+      this.timer.current.startTimer();
+      this.closeModal();
+    }
+  }, {
     key: "render",
     value: function render() {
       return _react.default.createElement("div", {
         id: "appContainer"
       }, _react.default.createElement(_Timer.default, {
-        openModal: this.openModal
+        openModal: this.openModal,
+        ref: this.timer
       }), _react.default.createElement(_reactModal.default, {
         isOpen: this.state.modalIsOpen,
         onAfterOpen: this.afterOpenModal,
         onRequestClose: this.closeModal,
-        contentLabel: "Example Modal"
-      }, _react.default.createElement(_Modal.default, null), _react.default.createElement("button", {
-        onClick: this.closeModal
-      }, "close")));
+        contentLabel: "Example Modal",
+        className: "Modal",
+        overlayClassName: "Overlay"
+      }, _react.default.createElement(_Modal.default, {
+        closeModal: this.closeModal,
+        restartTimer: this.restartTimer
+      })));
     }
   }]);
 
@@ -27175,7 +27220,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51948" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58906" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);

@@ -1,12 +1,15 @@
 import React, { Component } from 'react'
+import ModalMessage from './ModalMessage'
 import '../css/timerButton.css'
 
 export default class Modal extends Component {
 
   render(){
     return(
-      <div id="modalContainer">
-        <h1>Break's Time</h1>
+      <div>
+        <ModalMessage />
+        <button onClick={this.props.closeModal}>close</button>
+        <button onClick={this.props.restartTimer}>Restart</button>
       </div>
     );
   }
