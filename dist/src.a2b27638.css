@@ -118,6 +118,10 @@ body {
     color: white;
   }
 
+  .Modal p, h1 {
+    margin: 10px;
+  }
+
   .Overlay {
     position:static ;
     background-image:linear-gradient(rgba(0, 0, 0, 0.9),rgba(0, 0, 0, 0.9)),
