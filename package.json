@@ -2,10 +2,9 @@
   "name": "pomodoro_React",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
     "start": "parcel index.html",
-    "build": "parcel build index.html -d docs --public-url ./"
+    "build": "parcel build index.html --out-dir docs --public-url ./"
   },
   "repository": {
     "type": "git",
@@ -18,7 +17,7 @@
   "bugs": {
     "url": "https://github.com/kAldenhoff/pomodoro_React/issues"
   },
-  "homepage": "https://github.com/kAldenhoff/pomodoro_React#readme",
+  "homepage": "https://kaldenhoff.github.io/pomodoro_React/",
   "dependencies": {
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
