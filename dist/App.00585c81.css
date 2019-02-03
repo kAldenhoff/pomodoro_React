@@ -1,1 +1,0 @@
-body{width:100vw;height:100vh;margin:0;background-color:#333}#root{width:50%}#appContainer,#root{height:100%;margin:0 auto}.Modal{position:fixed;top:30vh;bottom:30vh;left:30vw;right:30vw;margin:0 auto;color:#fff}.Modal,.Overlay{background-image:linear-gradient(rgba(0,0,0,.9),rgba(0,0,0,.9)),url();background-size:cover;background-repeat:no-repeat}.Overlay{position:static}
