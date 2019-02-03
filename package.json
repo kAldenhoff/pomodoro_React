@@ -4,10 +4,9 @@
   "description": "",
   "scripts": {
     "start": "parcel index.html",
-    "build": "parcel build index.html --out-dir docs ./"
+    "predeploy": "rm -rf dist && parcel build index.html",
+    "deploy": "gh-pages -d dist"
   },
-  "predeploy": "npm run build",
-  "deploy": "master -d build",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/kAldenhoff/pomodoro_React.git"
@@ -29,6 +28,7 @@
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "cssnano": "^4.1.8",
+    "gh-pages": "^2.0.1",
     "master": "^1.0.1"
   }
 }
