@@ -6,18 +6,19 @@
     "start": "parcel index.html",
     "build": "parcel build index.html --out-dir docs ./"
   },
+  "predeploy": "npm run build",
+  "deploy": "master -d build",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/kAldenhoff/pomodoro_React.git"
   },
-  "homepage":"https://kaldenhoff.github.io/pomodoro_React/",
+  "homepage": "https://kaldenhoff.github.io/pomodoro_React/",
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/kAldenhoff/pomodoro_React/issues"
   },
-  "homepage": "https://kaldenhoff.github.io/pomodoro_React/",
   "dependencies": {
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
@@ -27,6 +28,7 @@
     "babel-core": "^6.26.3",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
-    "cssnano": "^4.1.8"
+    "cssnano": "^4.1.8",
+    "master": "^1.0.1"
   }
 }
