@@ -24862,7 +24862,7 @@ function (_Component) {
     value: function handleMinuteChange(minutes) {
       this.setState(function (state) {
         return {
-          minutes: minutes.length > 2 ? minutes.substring(1, minutes.length) : minutes,
+          minutes: minutes.length > 2 ? parseInt(minutes.substring(1, minutes.length), 10) : minutes,
           secondes: state.secondes
         };
       });
@@ -27224,7 +27224,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49513" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49955" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);

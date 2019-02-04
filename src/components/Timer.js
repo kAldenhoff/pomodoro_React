@@ -76,7 +76,7 @@ export default class Timer extends Component {
 
   handleMinuteChange(minutes){
     this.setState((state)=>({
-      minutes: minutes.length > 2 ? minutes.substring(1,minutes.length) : minutes,
+      minutes: minutes.length > 2 ? parseInt(minutes.substring(1,minutes.length),10) : minutes,
       secondes: state.secondes
     }))
   }
